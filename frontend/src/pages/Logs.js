@@ -49,12 +49,9 @@ function Logs() {
     pages: 0
   });
 
-  useEffect(() => {
-    loadLogs();
-    loadStats();
-  }, [filters, pagination.page]);
 
-  const loadLogs = async () => {
+
+const loadLogs = useCallback(async () => {
     try {
       setLoading(true);
       const params = {
@@ -71,16 +68,21 @@ function Logs() {
     } finally {
       setLoading(false);
     }
-  };
+  }, [pagination.page, pagination.per_page, filters]);
 
-  const loadStats = async () => {
+const loadStats = useCallback(async () => {
     try {
       const response = await logsAPI.getLogStats(filters.days);
       setStats(response.data);
     } catch (err) {
       console.error('Failed to load stats:', err);
     }
-  };
+}, [filters.days]);
+
+    useEffect(() => {
+    loadLogs();
+    loadStats();
+  }, [filters, pagination.page]);
 
   const handleFilterChange = (field, value) => {
     setFilters(prev => ({ ...prev, [field]: value }));
