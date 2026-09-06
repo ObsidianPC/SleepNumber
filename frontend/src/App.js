@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { Box, AppBar, Toolbar, Typography, Button, IconButton, Menu, MenuItem, Avatar } from '@mui/material';
-import { AccountCircle, Logout, SettingsIcon } from '@mui/icons-material';
+import { AccountCircle, Logout, Settings as SettingsIcon } from '@mui/icons-material';
 import { AuthProvider, useAuth } from './contexts/AuthContext';
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
@@ -78,7 +78,7 @@ function AppContent() {
         <Routes>
           <Route path="/" element={<Navigate to="/dashboard" replace />} />
           <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/settings" element={<SettingsIcon />} />
+          <Route path="/settings" element={<Settings />} />
           <Route path="/logs" element={<Logs />} />
         </Routes>
       </Box>
