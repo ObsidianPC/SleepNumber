@@ -12,7 +12,7 @@ import {
   Divider,
   Chip
 } from '@mui/material';
-import { Save, TestTube, CheckCircle, Error } from '@mui/icons-material';
+import { Save, Science as TestTube, CheckCircle, Error } from '@mui/icons-material';
 import { authAPI } from '../services/api';
 
 function Settings() {
