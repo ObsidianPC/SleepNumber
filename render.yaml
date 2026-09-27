@@ -4,7 +4,7 @@ services:
     env: python
     plan: free
     buildCommand: pip install flask flask-cors python-dotenv gunicorn
-    startCommand: cd backend && gunicorn --bind 0.0.0.0:$PORT simple_app:app
+    startCommand: cd backend && gunicorn --bind 0.0.0.0:$PORT app:app
     envVars:
       - key: FLASK_ENV
         value: production
